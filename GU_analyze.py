@@ -1500,22 +1500,8 @@ def write_events_to_csv( filename, events,
 
     sheet1_f.close()
 
-    # Write only sheets for stimulation positions that elicit PSPs
-   # n_PSP = sheet1_dict['n_PSP']
-  #  for ix, trace_ix in enumerate(sheet1_dict['PSP_index']):
- #       sheetn_f = open(save_dir + filename + '_sheet' + str(ix+1) +
-    #                        '.csv', 'wb')
 
-    #        evt = events[3+trace_ix]
-
-   #     csv_writer = csv.DictWriter(sheetn_f, events[trace_ix+3].keys())
-  #      csv_writer.writeheader()
- #       csv_writer.writerow(events[trace_ix+3])
-    #
-    #        sheetn_f.close()
-
-
-def plot_connections( fn = '/home/hjalmar/Data/BNST/cGlu_BNST_data.pik' ):
+def plot_connections(fn = '/home/hjalmar/Data/BNST/cGlu_BNST_data.pik'):
 
     f = open(fn,'rb')
     rec_dict = load( f )
@@ -1543,7 +1529,7 @@ def plot_connections( fn = '/home/hjalmar/Data/BNST/cGlu_BNST_data.pik' ):
 
     fig_size = (7.0,11.5)
     fig = plt.figure(figsize=fig_size)
-    import pdb;pdb.set_trace()
+    
     rec_pos = 1
     ax = fig.add_subplot( 321 , aspect = 'equal' )
     psp_counts = count_psp( rec_dict, n_pos, rec_pos )
@@ -1631,12 +1617,8 @@ def plot_connections( fn = '/home/hjalmar/Data/BNST/cGlu_BNST_data.pik' ):
     plt.show()
 
 
-def __plot_psp_map_bw( ax,
-                    psp_types,
-                    psp_counts,
-                    rec_pos,
-                    arrow_on = True,
-                    total_on = True ):
+def __plot_psp_map_bw(ax, psp_types, psp_counts,
+                      rec_pos, arrow_on=True, total_on=True):
 
     if type(psp_types) is not list:
         psp_types = [psp_types]
@@ -1658,11 +1640,7 @@ def __plot_psp_map_bw( ax,
         print ptype
         print 'fracs: ',fracs.ravel()
         print 'total: ',total
-        #area = (np.pi*2*( 50 * fracs.ravel())**2)/(2*n_types)
-        # Color of markers, correspond to the fraction of cells that responded
-        # to stimulation in a given sector of BNST
 
-        #s = ax.scatter(x,y,s=area,marker='o',color=[0,0,0])
         if arrow_on:
             ax.arrow( x[rec_pos-1]-xstep*0.8,
                       y[rec_pos-1]+xstep*0.8,
@@ -1711,13 +1689,13 @@ def __plot_psp_map_bw( ax,
     ax.set_yticks([])
 
 
-def __plot_psp_map_color( ax,
-                    psp_types,
-                    psp_counts,
-                    rec_pos,
-                    colorbar_on = False,
-                    arrow_on = True,
-                    total_on = False ):
+def __plot_psp_map_color(ax,
+                         psp_types,
+                         psp_counts,
+                         rec_pos,
+                         colorbar_on=False,
+                         arrow_on=True,
+                         total_on=False ):
 
     if type(psp_types) is not list:
         psp_types = [psp_types]
@@ -1802,7 +1780,7 @@ def __plot_psp_map_color( ax,
         cb.set_label('Fraction')
 
 
-def count_psp( rec_dict, n_pos, curr_pos ):
+def count_psp(rec_dict, n_pos, curr_pos):
     """
     Helper for plot_connetions
     """
@@ -1821,7 +1799,7 @@ def count_psp( rec_dict, n_pos, curr_pos ):
     return psp_counts
 
 
-def count2fractions( psp_counts, psp_type ):
+def count2fractions(psp_counts, psp_type):
     """
     Helper for __plot_psp_map
     """
@@ -1844,7 +1822,8 @@ def count2fractions( psp_counts, psp_type ):
         
     return fractions/totals, totals
 
-def bst_region( xy, region, dv_lim = -55.0 ):
+
+def bst_region(xy, region, dv_lim = -55.0):
     """
     region: 'medial', 'lateral', 'ventral'
     """
