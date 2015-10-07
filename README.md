@@ -5,8 +5,8 @@ Efficiently samples neural connections, combining the opposing requirements for 
 ## Background to GU
 The scripts were developed for an in vitro neurophysiology experiment done in order to map connections between neurons within the bed nucleus of the stria terminalis (BNST) using patch recordings and ultraviolet (UV) glutamate uncaging (GU). This works through illuminating a circular region of the BNST with UV-light while recording the membrane potential in one cell. UV-light releases glutamate which in turn activates the neurons in the illuminated region. If an activated cell is connected to the recorded cell then this is detected as changes in the recorded cell's membrane potential. Through sequentially illuminating several regions one can map the connections between the a given cell and those regions. 
 
-Reference: 
-Turesson HK, Rodríguez-Sierra OE, Pare D. Intrinsic connections in the anterior part of the bed nucleus of the stria terminalis. Journal of Neurophysiology. 2013;109(10):2438-2450.
+### Reference
+Turesson HK, Rodríguez-Sierra OE, Pare D. Intrinsic connections in the anterior part of the bed nucleus of the stria terminalis. Journal of Neurophysiology. 2013;109(10):2438-2450.<br/>
 http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3653047/
 
 ## The problem
